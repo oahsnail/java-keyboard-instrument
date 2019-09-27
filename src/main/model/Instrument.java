@@ -7,25 +7,23 @@ import java.util.Scanner;
 
 public class Instrument {
     //private ArrayList<String> currentNotes;
-    private int octave;
-    private Scanner scanner;
-    private String instType;
+    int octave;
+    Scanner scanner;
+    String instType;
 
+
+    //EFFECT: Constructs an Instrument
     public Instrument() {
         octave = 0;
         scanner = new Scanner(System.in);
         //currentNotes = new ArrayList<>();
-        start();
-
 
     }
 
-    private void setInstType(String instType) {
+    //MODIFIES: this
+    //EFFECT: Selects the instrument type.
+    public void setInstType(String instType) {
         this.instType = instType;
-        instChooser();
-    }
-
-    private void instChooser() {
         if (instType == "piano") {
             Piano.piano();
         } else {
@@ -33,26 +31,28 @@ public class Instrument {
         }
     }
 
-    public void setOctave(int octave) {
-        this.octave = octave;
-    }
 
-
-    private int octaveUp() {
+    //MODIFIES: this
+    //EFFECT: Moves the domain of the instrument 1 octave higher
+    public int octaveUp() {
         this.octave++;
         System.out.println("Turned octave up by 1");
         return this.octave;
 
     }
 
-    private int octaveDown() {
+    //MODIFIES: this
+    //EFFECT: Moves the domain of the instrument 1 octave lower
+    public int octaveDown() {
         this.octave--;
         System.out.println("Turned octave down by 1");
         return this.octave;
 
     }
 
-    private void start() {
+
+    //EFFECT: Sets up text box with options
+    public void start() {
         String operation = "";
 
         while (true) {
@@ -70,7 +70,6 @@ public class Instrument {
             } else if (operation.equals("octavedown")) {
                 System.out.println("octave is now " + octaveDown());
             }
-
 
         }
 

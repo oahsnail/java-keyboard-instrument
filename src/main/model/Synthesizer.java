@@ -5,7 +5,8 @@ public class Synthesizer {
 
 
     public static void synthesizer() {
-        System.out.println("Synth sounds boop beep");
+        String syn = "Synth sounds boop beep";
+        System.out.println(syn);
     }
 
 
