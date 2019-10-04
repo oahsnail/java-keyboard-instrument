@@ -1,6 +1,9 @@
 package model;
 
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -22,12 +25,13 @@ public class Instrument {
 
     //MODIFIES: this
     //EFFECT: Selects the instrument type.
-    public void setInstType(String instType) {
+    public void setInstType(String instType) throws IOException {
         this.instType = instType;
         if (instType == "piano") {
             Piano.piano();
         } else {
-            Synthesizer.synthesizer();
+            Synthesizer s1 = new Synthesizer();
+            s1.synthesizer();
         }
     }
 
@@ -52,7 +56,7 @@ public class Instrument {
 
 
     //EFFECT: Sets up text box with options
-    public void start() {
+    public void start() throws IOException {
         String operation = "";
 
         while (true) {

@@ -3,14 +3,9 @@ package model;
 import java.util.ArrayList;
 
 public class Notes {
-    ArrayList<Notes> listofNotes;
+    String note;
 
-    public Notes() {
-        listofNotes = new ArrayList<Notes>();
-    }
-
-    public void playnote(String s) {
 
     }
 
-}
+

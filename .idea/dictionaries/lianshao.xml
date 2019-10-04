@@ -3,6 +3,7 @@
     <words>
       <w>octavedown</w>
       <w>octaveup</w>
+      <w>saveable</w>
     </words>
   </dictionary>
 </component>
