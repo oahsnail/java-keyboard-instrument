@@ -69,11 +69,11 @@ class SynthesizerTest {
     @Test
     void changeEffectTest() throws FileNotFoundException, UnsupportedEncodingException {
         assertEquals("none", s1.getEffect());
-        s1.changeWaveShape("reverb");
+        s1.changeEffect("reverb");
         assertEquals("reverb", s1.getEffect());
-        s1.changeWaveShape("delay");
+        s1.changeEffect("delay");
         assertEquals("delay", s1.getEffect());
-        s1.changeWaveShape("none");
+        s1.changeEffect("none");
         assertEquals("none", s1.getEffect());
 
     }
