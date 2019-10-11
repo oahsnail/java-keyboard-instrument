@@ -31,6 +31,7 @@ public abstract class Instrument {
         } else {
             Synthesizer s1 = new Synthesizer();
             s1.synthesizer();
+
         }
     }
 
