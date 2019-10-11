@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.Scanner;
 import java.nio.file.NoSuchFileException;
 
-public class Synthesizer implements Loadable, Saveable {
+public class Synthesizer extends Instrument implements Loadable, Saveable {
     String waveShape = "sine";
     String effect = "none";
-    Scanner scanner;
+
     private List<String> synthesizerData = Files.readAllLines(Paths.get("./data/synthesizerData.txt"));
 
     public Synthesizer() throws IOException {
@@ -47,11 +47,9 @@ public class Synthesizer implements Loadable, Saveable {
         if (waveShape == "sine") {
             this.waveShape = "sine";
             save();
-
         } else if (waveShape == "saw") {
             this.waveShape = "saw";
             save();
-
         } else if (waveShape == "square") {
             this.waveShape = "square";
             save();
@@ -62,11 +60,9 @@ public class Synthesizer implements Loadable, Saveable {
         if (effect == "none") {
             this.effect = "none";
             save();
-
         } else if (effect == "reverb") {
             this.effect = "reverb";
             save();
-
         } else if (effect == "delay") {
             this.effect = "delay";
             save();

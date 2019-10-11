@@ -1,6 +1,6 @@
 package model;
 
-public class Piano {
+public class Piano extends Instrument {
 
 
     public static void piano() {

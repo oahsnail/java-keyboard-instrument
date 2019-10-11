@@ -8,17 +8,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Instrument {
+public abstract class Instrument {
     //private ArrayList<String> currentNotes;
     int octave;
-    Scanner scanner;
     String instType;
 
 
-    //EFFECT: Constructs an Instrument
+    //EFFECT: Constructs an Instrument with octave as 0
     public Instrument() {
         octave = 0;
-        scanner = new Scanner(System.in);
+        instType = "none";
         //currentNotes = new ArrayList<>();
 
     }
@@ -35,48 +34,15 @@ public class Instrument {
         }
     }
 
-
     //MODIFIES: this
-    //EFFECT: Moves the domain of the instrument 1 octave higher
-    public int octaveUp() {
-        this.octave++;
-        System.out.println("Turned octave up by 1");
+    //EFFECT: moves the domain of the instrument based on integer
+    //        if instrument if positive, the move the domain up, vice versa.
+    public int octaveChange(int o) {
+        this.octave = this.octave + o;
+
         return this.octave;
-
-    }
-
-    //MODIFIES: this
-    //EFFECT: Moves the domain of the instrument 1 octave lower
-    public int octaveDown() {
-        this.octave--;
-        System.out.println("Turned octave down by 1");
-        return this.octave;
-
     }
 
 
-    //EFFECT: Sets up text box with options
-    public void start() throws IOException {
-        String operation = "";
-
-        while (true) {
-            System.out.println("Instrument: 'piano' or 'synthesizer'? Options: 'octaveup', 'octavedown', 'quit'");
-            operation = scanner.nextLine();
-            System.out.println("You selected: " + operation);
-            if (operation.equals("quit")) {
-                break;
-            } else if (operation.equals("piano")) {
-                setInstType("piano");
-            } else if (operation.equals("synthesizer")) {
-                setInstType("synthesizer");
-            } else if (operation.equals("octaveup")) {
-                System.out.println("octave is now " + octaveUp());
-            } else if (operation.equals("octavedown")) {
-                System.out.println("octave is now " + octaveDown());
-            }
-
-        }
-
-    }
 
 }

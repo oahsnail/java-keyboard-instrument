@@ -3,7 +3,9 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
@@ -11,18 +13,24 @@ import java.nio.file.NoSuchFileException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SynthesizerTest {
+class SynthesizerTest {
     private List<String> synthesizerData = Files.readAllLines(Paths.get("./data/synthesizerData.txt"));
 
-    Synthesizer s1 = new Synthesizer();
-    Synthesizer s2 = new Synthesizer();
+    private Synthesizer s1;
+    private Synthesizer s2;
 
-    public SynthesizerTest() throws IOException {
+    SynthesizerTest() throws IOException {
     }
 
 
+    @BeforeEach
+    void runBefore() throws IOException {
+        s1 = new Synthesizer();
+        s2 = new Synthesizer();
+    }
+
     @Test
-    public void testSaveSynth() throws IOException {
+    void saveSynthesizerTest() throws IOException {
         s1.setWaveShape("saw");
         s1.setEffect("reverb");
         s1.save();
@@ -33,7 +41,7 @@ public class SynthesizerTest {
     }
 
     @Test
-    public void testLoadSynth() throws IOException {
+    void loadSynthesizerTest() throws IOException {
         s2.setWaveShape("sine");
         s2.setEffect("reverb");
         s2.save();
@@ -45,5 +53,30 @@ public class SynthesizerTest {
         assertEquals(synthesizerData.get(1), "reverb");
 
     }
+
+    @Test
+    void changeWaveShapeTest() throws FileNotFoundException, UnsupportedEncodingException {
+        assertEquals("sine", s1.getWaveShape());
+        s1.changeWaveShape("saw");
+        assertEquals("saw", s1.getWaveShape());
+        s1.changeWaveShape("square");
+        assertEquals("square", s1.getWaveShape());
+        s1.changeWaveShape("sine");
+        assertEquals("sine", s1.getWaveShape());
+
+    }
+
+    @Test
+    void changeEffectTest() throws FileNotFoundException, UnsupportedEncodingException {
+        assertEquals("none", s1.getEffect());
+        s1.changeWaveShape("reverb");
+        assertEquals("reverb", s1.getEffect());
+        s1.changeWaveShape("delay");
+        assertEquals("delay", s1.getEffect());
+        s1.changeWaveShape("none");
+        assertEquals("none", s1.getEffect());
+
+    }
+
 
 }
