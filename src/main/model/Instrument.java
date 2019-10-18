@@ -1,11 +1,9 @@
 package model;
 
 
-import java.io.FileNotFoundException;
+import model.exceptions.OctaveOutOfBoundsException;
+
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public abstract class Instrument {
@@ -37,13 +35,25 @@ public abstract class Instrument {
 
     //MODIFIES: this
     //EFFECT: moves the domain of the instrument based on integer
-    //        if instrument if positive, the move the domain up, vice versa.
-    public int octaveChange(int o) {
-        this.octave = this.octave + o;
+    //
+    public int setOctave(int octave) throws OctaveOutOfBoundsException {
+        this.octave = this.octave + octave;
+
+        if (octave < 0) {
+            throw new OctaveOutOfBoundsException();
+        }
+        try {
+            setOctave(-1);
+        } catch (OctaveOutOfBoundsException o) {
+            System.out.println("octave can't be below 0 \n");
+        } finally {
+            if (octave < 0) {
+                setOctave(0);
+            }
+        }
 
         return this.octave;
     }
-
 
 
 }

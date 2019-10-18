@@ -31,7 +31,6 @@ public class Scanners {
                 Instrument s = new Synthesizer();
                 s.setInstType("synthesizer");
             }
-
         }
 
     }
