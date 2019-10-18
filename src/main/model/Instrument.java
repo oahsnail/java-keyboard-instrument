@@ -55,5 +55,10 @@ public abstract class Instrument {
         return this.octave;
     }
 
+    public String getInstType() {
+        return instType;
+    }
+
+
 
 }

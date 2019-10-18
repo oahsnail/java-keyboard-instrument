@@ -43,7 +43,7 @@ public class Synthesizer extends Instrument implements Loadable, Saveable {
         }*/
     }
 
-    protected void changeWaveShape(String waveShape) throws FileNotFoundException, UnsupportedEncodingException {
+    public void changeWaveShape(String waveShape) throws FileNotFoundException, UnsupportedEncodingException {
         if (waveShape == "sine") {
             this.waveShape = "sine";
             save();
@@ -56,7 +56,7 @@ public class Synthesizer extends Instrument implements Loadable, Saveable {
         }
     }
 
-    void changeEffect(String effect) throws FileNotFoundException, UnsupportedEncodingException {
+    public void changeEffect(String effect) throws FileNotFoundException, UnsupportedEncodingException {
         if (effect == "none") {
             this.effect = "none";
             save();

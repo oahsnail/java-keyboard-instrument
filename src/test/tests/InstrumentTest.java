@@ -58,11 +58,11 @@ public class InstrumentTest {
 
     @Test
     void setInstTypeTest() throws IOException {
-        assertEquals("none", p.instType);
+        assertEquals("none", p.getInstType());
         p.setInstType("piano");
-        assertEquals("piano", p.instType);
+        assertEquals("piano", p.getInstType());
         p.setInstType("synthesizer");
-        assertEquals("synthesizer", p.instType);
+        assertEquals("synthesizer", p.getInstType());
 
 
 
