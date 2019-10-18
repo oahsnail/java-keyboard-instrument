@@ -1,7 +1,10 @@
-package model;
+package tests;
 
 //import model.Instrument;
 
+import model.Instrument;
+import model.Piano;
+import model.Synthesizer;
 import model.exceptions.OctaveOutOfBoundsException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
