@@ -3,20 +3,19 @@ package model;
 
 import model.exceptions.OctaveOutOfBoundsException;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public abstract class Instrument {
-    //private ArrayList<String> currentNotes;
     private int octave;
+    private Map<String, Note> curKeys;
 
 
 
     //EFFECT: Constructs an Instrument with octave as 0
     public Instrument() {
-        octave = 0;
+        this.curKeys = new HashMap<>();
 
 
     }
@@ -41,6 +40,20 @@ public abstract class Instrument {
             }
         }
         return this.octave;
+    }
+
+    public Map<String, Note> getCurKeys() {
+        return curKeys;
+    }
+
+    public void playCurrentNotes() {
+        curKeys.forEach((note, s) -> {
+            System.out.println(s);
+        });
+    }
+
+    public void addNote(String key, Note note) {
+        curKeys.put(key, note);
     }
 
 

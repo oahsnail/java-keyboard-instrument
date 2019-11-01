@@ -16,33 +16,15 @@ import java.nio.file.NoSuchFileException;
 public class Synthesizer extends Instrument implements Loadable, Saveable {
     String waveShape = "sine";
     String effect = "none";
-    private Map<Note, String> currentKeys;
+    private Map<Note, String> curKeys;
 
     private List<String> synthesizerData = Files.readAllLines(Paths.get("./data/synthesizerData.txt"));
 
     public Synthesizer() throws IOException {
-    }
-
-
-    public void synthesizer() throws FileNotFoundException, UnsupportedEncodingException {
         System.out.println("zap zoop synth noises");
         save();
-        /*String operation = "";
-
-        while (true) {
-            System.out.println("Change 'wave shape' or 'effects'? Or quit.");
-            operation = scanner.nextLine();
-            System.out.println("You selected: " + operation);
-            if (operation.equals("quit")) {
-                break;
-            } else if (operation.equals("wave shape")) {
-                System.out.println("sine, saw, or square?");
-                changeWaveShape("sine");
-            } else if (operation.equals("effects")) {
-                System.out.println("test");
-            }
-        }*/
     }
+
 
     public void changeWaveShape(String waveShape) throws FileNotFoundException, UnsupportedEncodingException {
         if (waveShape == "sine") {

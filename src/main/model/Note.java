@@ -5,16 +5,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Note {
-    private Map<String, AudioClip> note;
+    private Map<String, AudioClip> noteMap;
 
     //13 notes in an octave
     Note() {
-        note = new HashMap<>();
+        noteMap = new HashMap<>();
     }
 
     public void playPianoNote(String key) {
-        Piano piano = new Piano();
-        Map<String, Note> keys = piano.getCurrentKeys();
+        Instrument piano = new Piano();
+        Map<String, Note> keys = piano.getCurKeys();
         playNote(keys.get(key));
     }
 
