@@ -56,18 +56,6 @@ public class InstrumentTest {
 //        assertEquals(2, p.setOctave(3));
 //    }
 
-    @Test
-    void setInstTypeTest() throws IOException {
-        assertEquals("none", p.getInstType());
-        p.setInstType("piano");
-        assertEquals("piano", p.getInstType());
-        p.setInstType("synthesizer");
-        assertEquals("synthesizer", p.getInstType());
-
-
-
-    }
-
 
 
 }

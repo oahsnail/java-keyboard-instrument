@@ -9,12 +9,14 @@ import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.nio.file.NoSuchFileException;
 
 public class Synthesizer extends Instrument implements Loadable, Saveable {
     String waveShape = "sine";
     String effect = "none";
+    private Map<Note, String> currentKeys;
 
     private List<String> synthesizerData = Files.readAllLines(Paths.get("./data/synthesizerData.txt"));
 
@@ -39,7 +41,6 @@ public class Synthesizer extends Instrument implements Loadable, Saveable {
             } else if (operation.equals("effects")) {
                 System.out.println("test");
             }
-
         }*/
     }
 

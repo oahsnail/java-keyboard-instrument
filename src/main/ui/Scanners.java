@@ -26,10 +26,8 @@ public class Scanners {
                 break;
             } else if (operation.equals("piano")) {
                 Instrument p = new Piano();
-                p.setInstType("piano");
             } else if (operation.equals("synthesizer")) {
                 Instrument s = new Synthesizer();
-                s.setInstType("synthesizer");
             }
         }
 
