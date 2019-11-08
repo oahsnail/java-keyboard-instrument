@@ -6,6 +6,7 @@ import java.util.Scanner;
 import model.Instrument;
 import model.Piano;
 import model.Synthesizer;
+import model.exceptions.OctaveOutOfBoundsException;
 
 public class Scanners {
 
@@ -25,24 +26,31 @@ public class Scanners {
             if (operation.equals("quit")) {
                 break;
             } else if (operation.equals("piano")) {
-                Instrument p = new Piano();
+                options();
             } else if (operation.equals("synthesizer")) {
                 Instrument s = new Synthesizer();
+                options();
             }
         }
 
     }
 
-    public static int options() {
-        int operation = 0;
+    public static void options() {
+        int operation;
         scanner = new Scanner(System.in);
+        Instrument p = new Piano();
 
         while (true) {
-            System.out.println("How much octave change by?");
+            System.out.println("Set Octave:");
             operation = scanner.nextInt();
-            System.out.println("You selected: " + operation);
+            try {
+                p.setOctave(operation);
+                System.out.println("Octave is set to: " + p.getOctave());
+            } catch (OctaveOutOfBoundsException o) {
+                System.out.println("Octave must be above 1");
+            }
 
-            return operation;
+
         }
     }
 }

@@ -14,9 +14,9 @@ import java.util.Scanner;
 import java.nio.file.NoSuchFileException;
 
 public class Synthesizer extends Instrument implements Loadable, Saveable {
-    String waveShape = "sine";
-    String effect = "none";
-    private Map<Note, String> curKeys;
+    private String waveShape = "sine";
+    private String effect = "none";
+
 
     private List<String> synthesizerData = Files.readAllLines(Paths.get("./data/synthesizerData.txt"));
 
