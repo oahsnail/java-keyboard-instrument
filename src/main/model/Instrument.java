@@ -2,12 +2,14 @@ package model;
 
 
 import model.exceptions.OctaveOutOfBoundsException;
+import observer.OctaveSave;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Observable;
 
 
-public abstract class Instrument {
+public abstract class Instrument extends Observable {
     private int octave;
     private String note;
 
@@ -15,6 +17,7 @@ public abstract class Instrument {
     //EFFECT: Constructs an Instrument with octave as 0
     public Instrument() {
         this.octave = 0;
+        addObserver(new OctaveSave());
 
     }
 
@@ -24,6 +27,8 @@ public abstract class Instrument {
     //
     public int setOctave(int octave) throws OctaveOutOfBoundsException {
         this.octave = octave;
+        setChanged();
+        notifyObservers(octave);
 
         if (octave < 0) {
             throw new OctaveOutOfBoundsException();

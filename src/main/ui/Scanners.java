@@ -7,49 +7,52 @@ import model.Instrument;
 import model.Piano;
 import model.Synthesizer;
 import model.exceptions.OctaveOutOfBoundsException;
+import network.ReadWebPage;
 
 public class Scanners {
 
     private static Scanner scanner;
+    private static Piano piano;
 
 
     //EFFECT: Sets up text box with options
-    public static void start() throws IOException {
+    public void start() throws IOException {
         String operation = "";
 
         scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Instrument: 'piano' or 'synthesizer'? Or 'quit'");
+            System.out.println("Instrument: 'piano' or 'synthesizer'? Or 'options' / 'quit'");
             operation = scanner.nextLine();
             System.out.println("You selected: " + operation);
             if (operation.equals("quit")) {
                 break;
             } else if (operation.equals("piano")) {
-                options();
+                piano = new Piano();
+                ReadWebPage r = new ReadWebPage();
+                r.main();
+                options(piano);
             } else if (operation.equals("synthesizer")) {
                 Instrument s = new Synthesizer();
-                options();
             }
         }
 
     }
 
-    public static void options() {
+    public static void options(Instrument instrument) {
         int operation;
         scanner = new Scanner(System.in);
-        Instrument p = new Piano();
 
         while (true) {
             System.out.println("Set Octave:");
             operation = scanner.nextInt();
             try {
-                p.setOctave(operation);
-                System.out.println("Octave is set to: " + p.getOctave());
+                instrument.setOctave(operation);
+                System.out.println("Octave is set to: " + instrument.getOctave());
+
             } catch (OctaveOutOfBoundsException o) {
                 System.out.println("Octave must be above 1");
             }
-
 
         }
     }

@@ -23,8 +23,8 @@ public class Main {
 //        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 //        frame.setSize(500, 500);
 //        frame.setVisible(true);
-
-        Scanners.start();
+        Scanners s = new Scanners();
+        s.start();
 
     }
 
