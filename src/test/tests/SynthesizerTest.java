@@ -50,20 +50,24 @@ class SynthesizerTest {
         s2.setEffect("delay");
         s2.load();
         synthesizerData = Files.readAllLines(Paths.get("./data/synthesizerData.txt"));
-        assertEquals(synthesizerData.get(0), "sine");
-        assertEquals(synthesizerData.get(1), "reverb");
+        assertEquals("sine", synthesizerData.get(0));
+        assertEquals("reverb", synthesizerData.get(1));
 
     }
 
     @Test
-    void changeWaveShapeTest() throws FileNotFoundException, UnsupportedEncodingException {
+    void changeWaveShapeTest() throws IOException {
+        synthesizerData = Files.readAllLines(Paths.get("./data/synthesizerData.txt"));
         assertEquals("sine", s1.getWaveShape());
         s1.changeWaveShape("saw");
         assertEquals("saw", s1.getWaveShape());
+
         s1.changeWaveShape("square");
         assertEquals("square", s1.getWaveShape());
+
         s1.changeWaveShape("sine");
         assertEquals("sine", s1.getWaveShape());
+
 
     }
 

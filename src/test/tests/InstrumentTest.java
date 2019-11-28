@@ -47,14 +47,13 @@ public class InstrumentTest {
 
     }
 
-//    @Test
-//    void octaveChangePianoTest() {
-//        assertEquals(0, p.setOctave(0));
-//        assertEquals(1, p.setOctave(1));
-//        assertEquals(2, p.setOctave(1));
-//        assertEquals(-1, p.setOctave(-3));
-//        assertEquals(2, p.setOctave(3));
-//    }
+    @Test
+    void getOctaveTest() throws OctaveOutOfBoundsException {
+        s.setOctave(2);
+        p.setOctave(3);
+        assertEquals(2, s.getOctave());
+        assertEquals(3, p.getOctave());
+    }
 
 
 
