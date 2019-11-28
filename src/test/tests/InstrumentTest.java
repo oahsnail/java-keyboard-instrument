@@ -29,6 +29,11 @@ public class InstrumentTest {
     }
 
     @Test
+    void testSubclassConstructors() {
+        assertEquals(0, s.getOctave());
+    }
+
+    @Test
     void octaveChangeTest() {
 
         try {
