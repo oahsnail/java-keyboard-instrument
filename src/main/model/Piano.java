@@ -1,37 +1,17 @@
 package model;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.HashMap;
-import java.util.Map;
 
-//remember to extend keyListener
+import ui.PianoMaker;
+import ui.SoundPlayer;
+
 public class Piano extends Instrument {
 
 
-
     public Piano() {
-
+        PianoMaker inst = new PianoMaker(this.getOctave());
+        inst.setVisible(true);
     }
 
-//
-//    @Override
-//    public void keyTyped(KeyEvent e) {
-//
-//    }
-//
-//    @Override
-//    public void keyPressed(KeyEvent e) {
-//        int keyCode = e.getKeyCode();
-//
-//        if (keyCode == KeyEvent.VK_A) {
-//            System.out.println("C0");
-//        }
-//
-//    }
-//
-//    @Override
-//    public void keyReleased(KeyEvent e) {
-//
-//    }
+
+
 }

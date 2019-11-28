@@ -26,6 +26,8 @@ public class Synthesizer extends Instrument implements Loadable, Saveable {
     }
 
 
+    //MODIFIES: this
+    //EFFECTS: changes the waveshape of the synth and saves it
     public void changeWaveShape(String waveShape) throws FileNotFoundException, UnsupportedEncodingException {
         if (waveShape == "sine") {
             this.waveShape = "sine";
@@ -39,6 +41,9 @@ public class Synthesizer extends Instrument implements Loadable, Saveable {
         }
     }
 
+
+    //MODIFIES: this
+    //EFFECTS: changes the effects applied to the synth wave and saves it
     public void changeEffect(String effect) throws FileNotFoundException, UnsupportedEncodingException {
         if (effect == "none") {
             this.effect = "none";
